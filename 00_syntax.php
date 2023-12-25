@@ -8,7 +8,19 @@
   <title>Document</title>
 </head>
 <body>
-Hello World
 <!--Echo HTML tags-->
+<?php  echo "hello world";
+      echo'<br>';
+      echo "whats up"; 
+      echo'<br>';
+       echo 'nanana' ;
+       echo "<h1> hello from h1 </h1>";
+       echo "<button> click on me bliad </button>"
+      ?> 
+
+      <?php 
+        echo'<br>';
+        echo "from secnod tag";
+      ?>
 </body>
 </html>
