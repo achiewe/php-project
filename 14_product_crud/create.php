@@ -3,12 +3,12 @@
 $pdo = new PDO("mysql:host=localhost;port=3306;dbname=products_crud", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
-echo randomString(8)."<br>";
-echo randomString(8)."<br>";
-echo randomString(8)."<br>";
-echo randomString(8)."<br>";
-echo randomString(8)."<br>";
-echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
+// echo randomString(8)."<br>";
 
 // echo '<pre>';
 // var_dump($_FILES);
@@ -68,9 +68,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 
 
-    echo "<pre>";
-    var_dump($errors);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($errors);
+    // echo "</pre>";
 
     function randomString($n)
     {
