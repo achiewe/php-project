@@ -38,6 +38,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 
     if($image){
+        if($product["image"]){
+            unlink($product["image"]);
+        }
         $imagePath='images/'.randomString(8).'/'.$image['name'];
         mkdir(dirname($imagePath));
         move_uploaded_file($image['tmp_name'], 'images/'.$image['name']);
@@ -52,14 +55,16 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 
     if(empty($errors)){
-        $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
-        VALUES (:title, :image, :description, :price, :date)");
-        
+        $statement = $pdo->prepare("UPDATE products SET title = :title, 
+        image = :image, 
+        description = :description, 
+        price = :price, create_date) WHERE id = :id");
         $statement->bindValue(':title', $title);
         $statement->bindValue(':image', $imagePath);
         $statement->bindValue(':description', $description);
         $statement->bindValue(':price', $price);
-        $statement->bindValue(':date', date('Y-m-d H:i:s'));
+        $statement->bindValue(':id', $id);
+  
         
         $statement->execute();
         header('Location: index.php');
@@ -71,17 +76,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     // var_dump($errors);
     // echo "</pre>";
 
-    function randomString($n)
-    {
-           $characters = "0123456789abcdefghijklmnopqrstyvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-           $str = '';
-           for($i = 0; $i < $n; $i++){
-            $randomIndex = rand(0, strlen($characters) -1);
-            $str .= $characters[$randomIndex];
-           }
-
-           return $str;
-    }
+  
 
 
 
