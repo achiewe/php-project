@@ -108,6 +108,10 @@ echo "<pre>";
     <title> new product</title>
   </head>
   <body>
+
+  <p>
+  <a href="index.php" class="btn btn-secondary"> Back to products</a>
+  </p>
     <h1>update product: <?php echo $product["title"] ?> </h1>
 
     <?php if(!empty($errors)) : ?>
@@ -122,7 +126,7 @@ echo "<pre>";
     <?php endif; ?>
 
 
-    <a href="index.php"> Back to products</a>
+
 
 
     <form method="post" enctype="multipart/form-data">
