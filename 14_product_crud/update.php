@@ -18,9 +18,9 @@ $product = $statement->fetch(PDO::FETCH_ASSOC);
 
 $errors = [];
 
-$title='';
-$description='';
-$price='';
+$title = $product["title"];
+$description = $product["description"];
+$price = $product["price"];
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
@@ -126,6 +126,9 @@ echo "<pre>";
     <?php endif; ?>
 
     <form method="post" enctype="multipart/form-data">
+        <?php if($product["image"]): ?>
+            <img src="<?php echo $product["image"] ?>"/>
+            <?php endif; ?>
   <div class="form-group">
     <label >product Image</label><br>
     <input type="file" name="image">
