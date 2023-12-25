@@ -1,5 +1,6 @@
 <?php 
 
+require_once "function.php";
 
 $id = $_GET["id"] ?? null;
 if(!$id){
@@ -58,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         $statement = $pdo->prepare("UPDATE products SET title = :title, 
         image = :image, 
         description = :description, 
-        price = :price, create_date) WHERE id = :id");
+        price = :price WHERE id = :id");
         $statement->bindValue(':title', $title);
         $statement->bindValue(':image', $imagePath);
         $statement->bindValue(':description', $description);
@@ -119,6 +120,10 @@ echo "<pre>";
          <?php endforeach; ?>   
     </div>
     <?php endif; ?>
+
+
+    <a href="index.php"> Back to products</a>
+
 
     <form method="post" enctype="multipart/form-data">
         <?php if($product["image"]): ?>
