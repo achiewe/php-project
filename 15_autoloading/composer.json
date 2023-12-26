@@ -1,0 +1,15 @@
+{
+    "name": "achi/15_autoloading",
+    "autoload": {
+        "psr-4": {
+            "Achi\\15Autoloading\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "achiewe",
+            "email": "mamukashviliachi706@gmail.com"
+        }
+    ],
+    "require": {}
+}
