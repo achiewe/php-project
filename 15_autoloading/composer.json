@@ -2,7 +2,7 @@
   "name": "achi/15_autoloading",
   "autoload": {
     "psr-4": {
-      "Achi\\15Autoloading\\": "src/"
+      "app\\": "./app"
     }
   },
   "authors": [
