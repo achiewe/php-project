@@ -4,7 +4,17 @@
 require_once "../../function.php";
 require_once "../../database.php";
 
-$statement = $pdo->prepare("SELECT * FROM products ORDER BY create_date DESC");
+$keyword = $_GET['search']??null;
+
+if($keyword){
+  $statement = $pdo->prepare("SELECT * FROM products Where title like :keyword ORDER BY create_date DESC");
+  $statement->bindValue(":keyword", "%$keyword%");
+
+} else{
+  $statement = $pdo->prepare("SELECT * FROM products ORDER BY create_date DESC");
+
+}
+
 $statement->execute();
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -14,7 +24,15 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
  <?php require_once "../../views/partials/header.php"; ?>
 
     <h1>product crud</h1>
+    <form action="" method="get">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" value="<?php echo $keyword ?>" name="search" placeholder="Search"/>
+    <div class="input-group-append">
+      <button class="btn btn-success" type="submit">Search</button>
+    </div>
 
+  </div>
+    </form>
     <p>  
     <a href="create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
     </p>
