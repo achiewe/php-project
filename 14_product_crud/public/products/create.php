@@ -24,32 +24,8 @@ $price='';
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
-    $title = $_POST["title"];
-    $description = $_POST["description"];
-    $price = $_POST["price"];
-
-
-    $image = $_FILES['image'] ?? null;
-
-    $imagePath = '';
-
-    if(!is_dir('images')) {
-        mkdir('images');
-    }
-
-    if($image && $image["tmp_name"]){
-        $imagePath='images/'.randomString(8).'/'.$image['name'];
-        mkdir(dirname($imagePath));
-        move_uploaded_file($image['tmp_name'], 'images/'.$image['name']);
-    }
-
-    if(!$title){
-        $errors[] = 'Product title is required';
-    }
-
-    if(!$price){
-        $errors[] = 'Product price is required';
-    }
+   
+    require_once "../../validate_product.php";
 
     if(empty($errors)){
         $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
