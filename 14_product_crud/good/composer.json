@@ -1,0 +1,15 @@
+{
+  "name": "achi/good",
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "achiewe",
+      "email": "mamukashviliachi706@gmail.com"
+    }
+  ],
+  "require": {}
+}
