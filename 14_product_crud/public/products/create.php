@@ -60,16 +60,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 <?php require_once "../../views/partials/header.php"; ?>
     <h1>create new product </h1>
 
-    <?php if(!empty($errors)) : ?>
-
-    <div class="aler alert-danger">
-        <?php foreach($errors as $error): ?>
-            <div>
-                <?php echo $error ?>
-            </div> 
-         <?php endforeach; ?>   
-    </div>
-    <?php endif; ?>
+  
 
 
 

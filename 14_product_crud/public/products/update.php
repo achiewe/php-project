@@ -74,16 +74,6 @@ echo "<pre>";
   </p>
     <h1>update product: <?php echo $product["title"] ?> </h1>
 
-    <?php if(!empty($errors)) : ?>
-
-    <div class="aler alert-danger">
-        <?php foreach($errors as $error): ?>
-            <div>
-                <?php echo $error ?>
-            </div> 
-         <?php endforeach; ?>   
-    </div>
-    <?php endif; ?>
 
 
 
