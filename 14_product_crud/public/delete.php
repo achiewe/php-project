@@ -1,5 +1,6 @@
 <?php 
- require_once "database.php";
+require_once "../function.php";
+require_once "../database.php";
  
 
 $id = $_POST["id"] ?? null;
