@@ -22,9 +22,14 @@ $title='';
 $description='';
 $price='';
 
+
+  $product = [
+      'image' => ""
+  ];
+
+
 if($_SERVER['REQUEST_METHOD'] === "POST"){
 
-   
     require_once "../../validate_product.php";
 
     if(empty($errors)){
@@ -66,11 +71,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     </div>
     <?php endif; ?>
 
-<?php 
-  $product = [
-      'image' => ""
-  ];
-?>
+
 
    <?php require_once "../../views/products/form.php" ?>
   </body>
