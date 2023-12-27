@@ -1,6 +1,6 @@
 <?php
-require_once "Email.php";
-require_once "Person.php";
+
+require_once "vendor/autoload.php";
 
 $email  = new Email();
 $person = new Person();
