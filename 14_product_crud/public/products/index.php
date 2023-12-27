@@ -1,8 +1,8 @@
 <?php 
 
 
-require_once "../function.php";
-require_once "../database.php";
+require_once "../../function.php";
+require_once "../../database.php";
 
 $statement = $pdo->prepare("SELECT * FROM products ORDER BY create_date DESC");
 $statement->execute();
@@ -11,7 +11,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
- <?php require_once "../views/partials/header.php"; ?>
+ <?php require_once "../../views/partials/header.php"; ?>
 
     <h1>product crud</h1>
 
